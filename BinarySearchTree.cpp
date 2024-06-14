@@ -27,6 +27,34 @@ public:
 
     void insert(string element)
     {
-        
+    Node* newNode = new Node(element, NULL, NULL);
+	newNode->info = element;
+	newNode->leftchild = NULL;
+	newNode->rightchild = NULL;
+
+	Node* parent = NULL;
+	Node* currentNode = NULL;
+	search(element, parent, currentNode);
+	if (parent == NULL)
+	{
+		ROOT = newNode;
+		return;
+	}
+
+	if (element < parent->info)
+
+    {
+		parent->leftchild = newNode;
+	}
+
+	else if (element > parent->info)
+
+	{
+		parent->rightchild = newNode;
+	}
     }
-};
+
+    void search(string element, Node*& parent, Node*& currentNode) {  // Locate the node which will be the parent of the new node
+		// This function searches the current Node of the specified Node as well as the currentNode of its parent
+		currentNode = ROOT;
+		parent = NULL;
