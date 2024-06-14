@@ -74,5 +74,10 @@ void inorder(Node* ptr) // function to perform inorder traversal
 			cout << "Tree is empty" << endl;
 			return;
 		}
-
+		if (ptr != NULL) {
+			inorder(ptr->leftchild); // left
+			cout << ptr->info << " "; // root
+			inorder(ptr->rightchild); // right
+		}
+	}
 
